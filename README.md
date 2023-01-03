@@ -1,7 +1,7 @@
 # TUTORIAL SPRING BOOT DASAR
 
 
-![Img 1](image/judul.png)
+![Img 1](image/1.png)
 
 ## Agenda
 
