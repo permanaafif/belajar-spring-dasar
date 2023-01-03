@@ -59,7 +59,7 @@
 * Spring bisa dibilang adalah framework IoC, dimana kita akan menyerahkan banyak sekali pekerjaan dalam program kita ke Spring
 * Kode program kita akan mengikuti cara kerja Spring
 Diagram Inversion of Control
-![Img 8](image/7.PNG)
+![](image/7.PNG)
  
 ### Application Context
 * ApplicationContext adalah sebuah interface representasi container IoC di Spring
@@ -72,13 +72,15 @@ Diagram Inversion of Control
 * Untuk membuat ApplicationContext menggunakan Annotation, pertama kita bisa perlu membuat Configuration class
 * Configuration Class adalah sebuah class yang terdapat annotation @Configuration pada class tersebut
 * Kode : HelloWorldConfiguration
-![Img 9](image/8.PNG)
+
+![](image/2.png)
  
 ### Membuat Application Context
 * Selanjutnya, setelah membuat Class Configuration, kita bisa menggunakan class AnnotationConfigApplicationContext untuk membuat Application Context
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/AnnotationConfigApplicationContext.html] 
 * Kode : Membuat Application Context
-![Img 8](image/7.PNG)
+
+![](image/3.png)
 
 ### Singleton
 * Singleton adalah salah satu Design Patterns untuk pembuatan objek, dimana sebuah object hanya dibuat satu kali saja
@@ -89,7 +91,9 @@ Diagram Inversion of Control
 * Selanjutnya constructor nya dibuat private, agar tidak bisa diakses dari luar
 * Sehingga user terpaksa menggunakan method static tersebut ketika ingin membuat object nya
 * Kode : Singleton Class
-![Img 8](image/7.PNG)
+
+![](image/4.png) 
+![](image/5.png)
  
 ### Bean
 * Saat sebuah object kita masukkan kedalam Spring Container IoC, maka kita sebut object tersebut adalah Bean
@@ -100,13 +104,15 @@ Diagram Inversion of Control
 * Method tersebut perlu kita tambahkan annotation @Bean, untuk menandakan bahwa itu adalah bean
 * Secara otomatis Spring akan mengeksekusi method tersebut, dan return value nya akan dijadikan object bean secara otomatis, dan disimpan di container IoC
 * Kode : Membuat Bean
-![Img 8](image/7.PNG)
+
+![](image/6.png)
 
 ### Mengakses Bean
 * Setelah kita membuat bean, secara otomatis semua object akan di-manage oleh Application Context
 * Untuk mengakses bean, kita bisa menggunakan method getBean milik Application Context
 * Kode : Mengakses Bean
-![Img 8](image/7.PNG)
+
+![](image/7.png)
  
 ### Duplicate Bean
 * Di Spring, kita bisa mendaftarkan beberapa bean dengan tipe yang sama
@@ -114,16 +120,23 @@ Diagram Inversion of Control
 * Selain itu, saat kita mengakses bean nya, kita wajib menyebutkan nama bean nya, karena jika tidak, Spring akan bingung harus mengakses bean yang mana
 * Kode : Duplicate Bean
  
+ ![](image/8.png)
+ 
 * Kode : Mengakses Duplicate Bean
  
+ ![](image/9.png)
  
 ### Primary Bean
 * Jika terjadi duplicate bean, selain kita sebSecarautkan nama bean nya ketika ingin mengakses bean nya, kita  juga bisa pilih salah satu bean menjadi primary
 * Dengan memilih salah satunya menjadi primary, secara otomatis jika kita mengakses bean tanpa menyebutkan nama bean nya, secara otomatis primary nya yang akan dipilih
 * Untuk memilih primary bean, kita bisa tambahkan annotaiton @Primary
 * Kode : Primary Bean
+
+ ![](image/10.png)
  
 * Kode : Mengakses Primary Bean
+
+![](image/11.png)
  
  
 ### Mengubah Nama Bean
@@ -134,8 +147,11 @@ Diagram Inversion of Control
 @Bean
 * Kode : Mengubah Nama Bean
  
+ ![](image/12.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/13.png)
  
 ### Dependency Injection
 * Saat kita membuat object, sudah pasti kita sering membuat object yang tergantung dengan object lain
@@ -148,9 +164,13 @@ Diagram Inversion of Control
 * Sebenarnya tanpa Dependency Injection pun, kita tetap bisa membuat aplikasi
 * Namun ketika relasi antar dependencies sangat kompleks, agak ribet untuk kita melakukannya jika harus manual
 * Oleh karena itu, penggunaan Dependency Injection framework seperti Spring sangat membantu sekali
-* Kode : Class FoorBar
+* Kode : Class FooBar
+ 
+ ![](image/14.png)
  
 * Kode : Tanpa Dependency Injection
+ 
+ ![](image/15.png)
  
 #### Spring Dependency Injection
 * Spring sejak awal dikenal dengan framework untuk Dependency Injection
@@ -160,7 +180,11 @@ Diagram Inversion of Control
 * Dan jika ternyata terdapat bean lebih dari satu, secara otomatis akan terjadi error, kecuali terdapat primary bean
 * Kode : Bean Dependency Injection
  
+ ![](image/51.png)
+ 
 * Kode : Menggunakan Dependency Injection
+
+![](image/52.png)
  
  
  
@@ -171,8 +195,11 @@ Diagram Inversion of Control
 * Kita bisa menggunakan annotation @Qualifier(value=”namaBean”) pada parameter di method nya
 * Kode : Memilih Dependency
  
+ ![](image/55.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/56.png)
  
 #### Circular Dependencies
 * Hati-hati dengan curcular dependencies
@@ -181,8 +208,11 @@ Diagram Inversion of Control
  
 * Kode : Contoh Circular Configuration
  
+ ![](image/59.png)
+ 
 * Kode : Error Circular Dependencies
  
+ ![](image/60.png)
  
 ### Depends On
 * Saat sebuah bean membutuhkan bean lain, secara otomatis bean tersebut akan dibuat setelah bean yang dibutuhkan dibuat
@@ -191,8 +221,8 @@ Diagram Inversion of Control
 * Secara otomatis, Spring akan memprioritaskan pembuatan bean yang terdapat di DependsOn terlebih dahulu
 * Kode : Depends On
  
+ ![](image/63.png)
  
- 
 ### Lazy Bean
 * Secara default, bean di Spring akan dibuat ketika aplikasi Spring pertama kali berjalan
 * Oleh karena itu, kadang ketika aplikasi Spring pertama berjalan akan sedikit lambat, hal ini dikarenakan semua bean akan dibuat di awal
@@ -200,13 +230,13 @@ Diagram Inversion of Control
 * Untuk membuat sebuah bean menjadi lazy, kita bisa tambahkan annotation @Lazy pada bean tersebut
 * Kode : Lazy Bean
  
+ ![](image/66.png)
  
 ### Scope
 * Scope merupakan strategy cara sebuah object dibuat
 * Secara default strategy object di Spring adalah singleton, artinya hanya dibuat sekali, dan ketika kita akses, akan mengembalikan object yang sama
 * Namun kita juga bisa mengubah scope bean yang kita mau di Spring
 * Untuk mengubah scope sebuah bean, kita bisa tambahkan annotation @Scope(value=”namaScope”)
- 
  
 ### Bean Scope
 ---------------------------------------------------------------------
@@ -222,10 +252,11 @@ Diagram Inversion of Control
 
 * Kode : Scope Prototype
  
+ ![](image/70.png)
  
 * Kode : Mengakses Bean
  
- 
+ ![](image/71.png)
  
 ### Membuat Scope
 * Jika scope yang disediakan oleh Spring tidak bisa memenuhi kebutuhan kita, kita juga bisa membuat scope sendiri
@@ -235,11 +266,15 @@ Diagram Inversion of Control
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/CustomScopeConfigurer.html] 
 * Kode : Doubleton Scope
  
+ ![](image/74.png)
+ 
 * Kode : Register Doubleton Scope
+ 
+ ![](image/75.png)
  
 * Kode : Mengakses Doubleton Bean
  
- 
+ ![](image/76.png)
  
 ### Life Cycle
 * Spring Container memiliki alur hidup, dan jika kita ingin berinteraksi dengan alur hidup nya Spring, kita juga bisa lakukan
@@ -254,11 +289,15 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html] 
 * Kode : Connection Class
  
+ ![](image/80.png)
+ 
 * Kode : LifeCycle Configuration
+ 
+ ![](image/81.png)
  
 * Kode : Mengakses Connection
  
- 
+ ![](image/82.png)
  
 ### Life Cycle Annotation
 * Selain menggunakan interface InitializingBean dan DisposableBean, kita juga bisa menggunakan annotation untuk mendaftarkan callback method untuk lifecycle
@@ -268,9 +307,15 @@ Life Cycle Callback
 * Methodnya harus tanpa parameter, dan return value nya tidak akan dipedulikan, jadi sebaiknya gunakan void saja
 * Kode : Server Class
  
+ ![](image/85.png)
+ 
 * Kode : Server Configuration
  
+ ![](image/86.png)
+ 
 * Kode : Mengakses Server
+ 
+ ![](image/87.png)
  
 @PostConstruct dan @PreDestroy
 * Selain menggunakan annotation @Bean, untuk menandai sebuah method adalah init method dan destroy method, kita juga bisa menggunakan annotation pada method nya secara langsung
