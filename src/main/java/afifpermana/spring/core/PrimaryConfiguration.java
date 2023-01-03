@@ -1,19 +1,23 @@
 package afifpermana.spring.core;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import afifpermana.spring.core.data.Foo;
 
-@Slf4j
 @Configuration
-public class BeanConfiguration {
+public class PrimaryConfiguration {
+
+  @Primary
+  @Bean
+  public Foo foo1(){
+    return new Foo();
+  }
 
   @Bean
-  public Foo foo(){
-    Foo foo = new Foo();
-    log.info("Create new foo");
-    return foo;
+  public Foo foo2(){
+    return new Foo();
   }
 
 }
