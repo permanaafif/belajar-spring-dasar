@@ -38,18 +38,9 @@
 * Spring bisa digunakan terintegrasi dengan baik dengan Bean Validation, Java Persistence API, Servlet, dan lain-lain
 * Selain itu juga Spring bisa diintegrasikan dengan teknologi yang tidak standar bawaan Java, seperti MongoDB, Consul, Vault, Cassandra, dan lain-lain
 
-
 ### Membuat Project
 [https://start.spring.io/]  
 
-![Img 2](image/1.PNG)
-
-
-* Create File
-![Img 7](image/6.png)
-![Img 8](image/7.PNG)
-
- 
 ### Inversion of Control
 #### Inversion of Control (IoC) merupakan prinsip dalam pembuatan perangkat lunak, dimana kita melakukan pemindahan kontrol untuk objek atau program ke sebuah container di framework
 * Tidak seperti biasanya ketika kita membuat aplikasi, dimana kita selalu melakukannya secara manual, dalam IoC, kita menyerahkan banyak pekerjakan ke container IoC 
@@ -59,7 +50,7 @@
 * Spring bisa dibilang adalah framework IoC, dimana kita akan menyerahkan banyak sekali pekerjaan dalam program kita ke Spring
 * Kode program kita akan mengikuti cara kerja Spring
 Diagram Inversion of Control
-![Img 8](image/7.PNG)
+![](image/ioc.PNG)
  
 ### Application Context
 * ApplicationContext adalah sebuah interface representasi container IoC di Spring
@@ -72,13 +63,15 @@ Diagram Inversion of Control
 * Untuk membuat ApplicationContext menggunakan Annotation, pertama kita bisa perlu membuat Configuration class
 * Configuration Class adalah sebuah class yang terdapat annotation @Configuration pada class tersebut
 * Kode : HelloWorldConfiguration
-![Img 9](image/8.PNG)
+
+![](image/2.png)
  
 ### Membuat Application Context
 * Selanjutnya, setelah membuat Class Configuration, kita bisa menggunakan class AnnotationConfigApplicationContext untuk membuat Application Context
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/AnnotationConfigApplicationContext.html] 
 * Kode : Membuat Application Context
-![Img 8](image/7.PNG)
+
+![](image/3.png)
 
 ### Singleton
 * Singleton adalah salah satu Design Patterns untuk pembuatan objek, dimana sebuah object hanya dibuat satu kali saja
@@ -89,7 +82,9 @@ Diagram Inversion of Control
 * Selanjutnya constructor nya dibuat private, agar tidak bisa diakses dari luar
 * Sehingga user terpaksa menggunakan method static tersebut ketika ingin membuat object nya
 * Kode : Singleton Class
-![Img 8](image/7.PNG)
+
+![](image/4.png) 
+![](image/5.png)
  
 ### Bean
 * Saat sebuah object kita masukkan kedalam Spring Container IoC, maka kita sebut object tersebut adalah Bean
@@ -100,13 +95,15 @@ Diagram Inversion of Control
 * Method tersebut perlu kita tambahkan annotation @Bean, untuk menandakan bahwa itu adalah bean
 * Secara otomatis Spring akan mengeksekusi method tersebut, dan return value nya akan dijadikan object bean secara otomatis, dan disimpan di container IoC
 * Kode : Membuat Bean
-![Img 8](image/7.PNG)
+
+![](image/6.png)
 
 ### Mengakses Bean
 * Setelah kita membuat bean, secara otomatis semua object akan di-manage oleh Application Context
 * Untuk mengakses bean, kita bisa menggunakan method getBean milik Application Context
 * Kode : Mengakses Bean
-![Img 8](image/7.PNG)
+
+![](image/7.png)
  
 ### Duplicate Bean
 * Di Spring, kita bisa mendaftarkan beberapa bean dengan tipe yang sama
@@ -114,16 +111,23 @@ Diagram Inversion of Control
 * Selain itu, saat kita mengakses bean nya, kita wajib menyebutkan nama bean nya, karena jika tidak, Spring akan bingung harus mengakses bean yang mana
 * Kode : Duplicate Bean
  
+ ![](image/8.png)
+ 
 * Kode : Mengakses Duplicate Bean
  
+ ![](image/9.png)
  
 ### Primary Bean
 * Jika terjadi duplicate bean, selain kita sebSecarautkan nama bean nya ketika ingin mengakses bean nya, kita  juga bisa pilih salah satu bean menjadi primary
 * Dengan memilih salah satunya menjadi primary, secara otomatis jika kita mengakses bean tanpa menyebutkan nama bean nya, secara otomatis primary nya yang akan dipilih
 * Untuk memilih primary bean, kita bisa tambahkan annotaiton @Primary
 * Kode : Primary Bean
+
+ ![](image/10.png)
  
 * Kode : Mengakses Primary Bean
+
+![](image/11.png)
  
  
 ### Mengubah Nama Bean
@@ -134,8 +138,11 @@ Diagram Inversion of Control
 @Bean
 * Kode : Mengubah Nama Bean
  
+ ![](image/12.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/13.png)
  
 ### Dependency Injection
 * Saat kita membuat object, sudah pasti kita sering membuat object yang tergantung dengan object lain
@@ -148,9 +155,13 @@ Diagram Inversion of Control
 * Sebenarnya tanpa Dependency Injection pun, kita tetap bisa membuat aplikasi
 * Namun ketika relasi antar dependencies sangat kompleks, agak ribet untuk kita melakukannya jika harus manual
 * Oleh karena itu, penggunaan Dependency Injection framework seperti Spring sangat membantu sekali
-* Kode : Class FoorBar
+* Kode : Class FooBar
+ 
+ ![](image/14.png)
  
 * Kode : Tanpa Dependency Injection
+ 
+ ![](image/15.png)
  
 #### Spring Dependency Injection
 * Spring sejak awal dikenal dengan framework untuk Dependency Injection
@@ -160,7 +171,11 @@ Diagram Inversion of Control
 * Dan jika ternyata terdapat bean lebih dari satu, secara otomatis akan terjadi error, kecuali terdapat primary bean
 * Kode : Bean Dependency Injection
  
+ ![](image/51.png)
+ 
 * Kode : Menggunakan Dependency Injection
+
+![](image/52.png)
  
  
  
@@ -171,8 +186,11 @@ Diagram Inversion of Control
 * Kita bisa menggunakan annotation @Qualifier(value=”namaBean”) pada parameter di method nya
 * Kode : Memilih Dependency
  
+ ![](image/55.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/56.png)
  
 #### Circular Dependencies
 * Hati-hati dengan curcular dependencies
@@ -181,8 +199,11 @@ Diagram Inversion of Control
  
 * Kode : Contoh Circular Configuration
  
+ ![](image/59.png)
+ 
 * Kode : Error Circular Dependencies
  
+ ![](image/60.png)
  
 ### Depends On
 * Saat sebuah bean membutuhkan bean lain, secara otomatis bean tersebut akan dibuat setelah bean yang dibutuhkan dibuat
@@ -191,8 +212,8 @@ Diagram Inversion of Control
 * Secara otomatis, Spring akan memprioritaskan pembuatan bean yang terdapat di DependsOn terlebih dahulu
 * Kode : Depends On
  
+ ![](image/63.png)
  
- 
 ### Lazy Bean
 * Secara default, bean di Spring akan dibuat ketika aplikasi Spring pertama kali berjalan
 * Oleh karena itu, kadang ketika aplikasi Spring pertama berjalan akan sedikit lambat, hal ini dikarenakan semua bean akan dibuat di awal
@@ -200,13 +221,13 @@ Diagram Inversion of Control
 * Untuk membuat sebuah bean menjadi lazy, kita bisa tambahkan annotation @Lazy pada bean tersebut
 * Kode : Lazy Bean
  
+ ![](image/66.png)
  
 ### Scope
 * Scope merupakan strategy cara sebuah object dibuat
 * Secara default strategy object di Spring adalah singleton, artinya hanya dibuat sekali, dan ketika kita akses, akan mengembalikan object yang sama
 * Namun kita juga bisa mengubah scope bean yang kita mau di Spring
 * Untuk mengubah scope sebuah bean, kita bisa tambahkan annotation @Scope(value=”namaScope”)
- 
  
 ### Bean Scope
 ---------------------------------------------------------------------
@@ -222,10 +243,11 @@ Diagram Inversion of Control
 
 * Kode : Scope Prototype
  
+ ![](image/70.png)
  
 * Kode : Mengakses Bean
  
- 
+ ![](image/71.png)
  
 ### Membuat Scope
 * Jika scope yang disediakan oleh Spring tidak bisa memenuhi kebutuhan kita, kita juga bisa membuat scope sendiri
@@ -235,11 +257,15 @@ Diagram Inversion of Control
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/CustomScopeConfigurer.html] 
 * Kode : Doubleton Scope
  
+ ![](image/74.png)
+ 
 * Kode : Register Doubleton Scope
+ 
+ ![](image/75.png)
  
 * Kode : Mengakses Doubleton Bean
  
- 
+ ![](image/76.png)
  
 ### Life Cycle
 * Spring Container memiliki alur hidup, dan jika kita ingin berinteraksi dengan alur hidup nya Spring, kita juga bisa lakukan
@@ -254,11 +280,15 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html] 
 * Kode : Connection Class
  
+ ![](image/80.png)
+ 
 * Kode : LifeCycle Configuration
+ 
+ ![](image/81.png)
  
 * Kode : Mengakses Connection
  
- 
+ ![](image/82.png)
  
 ### Life Cycle Annotation
 * Selain menggunakan interface InitializingBean dan DisposableBean, kita juga bisa menggunakan annotation untuk mendaftarkan callback method untuk lifecycle
@@ -268,9 +298,15 @@ Life Cycle Callback
 * Methodnya harus tanpa parameter, dan return value nya tidak akan dipedulikan, jadi sebaiknya gunakan void saja
 * Kode : Server Class
  
+ ![](image/85.png)
+ 
 * Kode : Server Configuration
  
+ ![](image/86.png)
+ 
 * Kode : Mengakses Server
+ 
+ ![](image/87.png)
  
 @PostConstruct dan @PreDestroy
 * Selain menggunakan annotation @Bean, untuk menandai sebuah method adalah init method dan destroy method, kita juga bisa menggunakan annotation pada method nya secara langsung
@@ -279,7 +315,8 @@ Life Cycle Callback
 * @PreDestroy merupakan method yang ditandai harus dipanggil ketika bean akan dihancurkan
 * Jika sudah menggunakan annotation ini, kita tidak perlu lagi menyebutkan nya di @Bean
 * Kode : Server Class
- 
+
+ ![](image/89.png)
  
  
 ### Import
@@ -291,10 +328,15 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html] 
 * Kode : Foo dan Bar Configuration
  
+ ![](image/92.png)
+ 
 * Kode : Import Configuration
+
+![](image/93.png)
  
 * Kode : Mengakses Bean
  
+ ![](image/94.png)
  
  
 ### Component Scan
@@ -306,6 +348,7 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html]
 * Kode : Component Scan
  
+ ![](image/97.png)
  
 ### Component
 * Sebelumnya kita sudah belajar membuat bean menggunakan method di configuration dengan annotation @Bean
@@ -323,10 +366,15 @@ Annotation
 * Seperti misalnya @Scope, @PostConstruct, @PreDestroy, @Lazy, @Primary dan lain-lain
 * Kode : Component
  
+ ![](image/102.png)
+ 
 * Kode : Component Configuration
+ 
+ ![](image/103.png)
  
 * Kode : Mengakses Component
  
+ ![](image/104.png)
  
 ### Dependency Injection
 * Sebelumnya untuk melakukan Dependency Injection di @Bean, kita bisa menambah parameter di method nya
@@ -340,7 +388,11 @@ Annotation
 * Constructor-based Dependency Injection hanya mendukung satu constructor, jadi pastikan kita hanya membuat satu constructor
 * Kode : Constructor-based DI
  
+ ![](image/108.png)
+ 
 * Kode : Mengakses Bean
+
+![](image/109.png)
  
 ### Multiple Constructor
 * Seperti di awal disebutkan bahwa Spring hanya mendukung satu constructor untuk Dependency Injection nya
@@ -348,6 +400,7 @@ Annotation
 * Jika pada kasus seperti ini, kita harus menandai constructor mana yang akan digunakan oleh Spring *  Caranya kita bisa menggunakan annotation @Autowired
 * Kode : Multiple Constructor
  
+ ![](image/111.png)
  
  
 ### Setter-based Dependency Injection
@@ -357,7 +410,11 @@ Annotation
 * Setter-based DI juga bisa digabung dengan Constructor-based DI
 * Kode : Settter-based DI
  
+ ![](image/114.png)
+ 
 * Kode : Mengakses Bean
+
+![](image/115.png)
  
  
 ### Field-based Dependency Injection
@@ -367,25 +424,29 @@ Annotation
 * Field-based DI bisa digabung sekaligus dengan Setter-based DI dan Constructor-based DI
 * Khusus Field-based DI, Spring sendiri sudah tidak merekomendasikan penggunaan cara melakukan DI dengan Field
 * Kode : Field-based DI
+
+![](image/118.png)
  
 * Kode : Mengakses Bean
  
+ ![](image/119.png)
  
 ### Qualifier
 * Seperti yang sudah dijelaskan di awal, jika terdapat bean dengan tipe data yang sama lebih dari satu, maka secara otomatis Spring akan bingung memilih bean yang mana yang akan digunakan
 * Kita perlu memilih salah satu menjadi primary, yang secara otomatis akan dipilih oleh Spring
 * Namun jika kita ingin memilih bean secara manual, kita juga bisa menggunakan @Qualifier
 * Kita bisa tambahkan @Qualifier di constructor parameter, di setter method atau di field
- 
- 
 * Kode : Duplicate Bean
  
+ ![](image/122.png)
  
 * Kode : Menggunakan Qualifier
  
+ ![](image/123.png)
  
 * Kode : Mengakses Bean
  
+ ![](image/124.png)
  
  
 ### Optional Dependency
@@ -397,7 +458,11 @@ Annotation
 * Kita bisa gunakan Optional<T> pada @Bean (method parameter) ataupun @Component (constructor parameter, setter method parameter, field)
 * Kode : Optional Configuration
  
+ ![](image/127.png)
+ 
 * Kode : Mengakses Bean
+ 
+ ![](image/128.png)
  
 Object Provider
 * Selain menggunakan java.util.Optional<T>, kita juga bisa menggunakan ObjectProvider<T>
@@ -405,10 +470,15 @@ Object Provider
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/ObjectProvider.html]
 * Kode : Object Provider
  
+ ![](image/130.png)
+ 
 * Kode : Optional Configuration
+ 
+ ![](image/131.png)
  
 * Kode : Mengakses Bean
  
+ ![](image/132.png)
  
  
 ### Factory Bean
@@ -419,12 +489,19 @@ Object Provider
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/FactoryBean.html] 
 * Kode : Payment Gateway Client
  
+ ![](image/135.png)
+ 
 * Kode : Factory Bean
+ 
+ ![](image/136.png)
  
 * Kode : Configuration
  
+ ![](image/137.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/138.png)
  
  
 ### Inheritance
@@ -433,12 +510,17 @@ Object Provider
 * Namun perlu berhati-hati, jika misal MerchantService memiliki banyak bean turunan, pastikan tidak terjadi error duplicate
 * Kode : MerchantService
  
+ ![](image/141a.png)
  
+ ![](image/141b.png)
+
 * Kode : Configuration
+
+ ![](image/142.png)
  
 * Kode : Mengakses Bean
  
- 
+ ![](image/143.png)
  
 ### Bean Factory
 * ApplicationContext adalah interface turunan dari BeanFactory
@@ -454,6 +536,7 @@ Object Provider
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/ListableBeanFactory.html]
 * Kode : Menggunakan Listable Bean Factory
  
+ ![](image/147.png)
  
 ### Bean Post Processor
 * Bean Post Processor merupakan sebuah interface yang bisa kita gunakan untuk memodifikasi proses pembuatan bean di Application Context
@@ -467,13 +550,19 @@ Object Provider
 * Kita akan membuat Bean Post Processor, dimana jika bean nya implements IdAware, kita akan setId(String) nya menggunakan UUID
 * Kode : IdAware Interface
  
+ ![](image/151.png)
+ 
 * Kode : Bean Post Processor
+ 
+ ![](image/152.png)
  
 * Kode : Component
  
+ ![](image/153.png)
+ 
 * Kode : Mengakses Bean
  
- 
+ ![](image/154.png)
  
 ### Ordered
 * Saat kita membuat Bean Post Processor, kita bisa membuat lebih dari satu
@@ -483,13 +572,20 @@ Object Provider
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/Ordered.html] 
 * Kode : Id Aware
  
+ ![](image/157.png)
+ 
 * Kode : Id Generator
+ 
+ ![](image/158.png)
  
 * Kode : Prefix Id Generator
  
+ ![](image/159.png)
+ 
 * Kode : Mengakses Bean
  
-  
+  ![](image/160.png)
+ 
 ### Aware
 * Spring memiliki sebuah interface berama Aware
 * Aware adalah super interface yang digunakan untuk semua Aware interface
@@ -511,9 +607,11 @@ Object Provider
 
 * Code : Aware
 
+ ![](image/164.png)
+ 
 * Kode : Mengakses Bean
  
- 
+ ![](image/165.png)
  
 ### Bean Factory Post Processor
 * Secara default, mungkin kita tidak akan pernah sama sekali membuat Application Context secara manual
@@ -523,8 +621,11 @@ Object Provider
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/support/]BeanDefinitionRegistryPostProcessor.html 
 * Kode : Bean Factory Post Processor
  
+ ![](image/168.png)
+ 
 * Kode : Mengakses Bean
  
+ ![](image/169.png)
  
 ### Event Listener
 * Spring memiliki fitur Event Listener yang bisa kita gunakan untuk komunikasi antar class menggunakan Event
@@ -539,13 +640,19 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationEventPublisher.html]
 * Kode : Event
  
+ ![](image/173.png)
+ 
 * Kode : Listener
+ 
+ ![](image/174.png)
  
 * Kode : Mengirim Event
  
+ ![](image/175.png)
+ 
 * Kode : Mengakses Bean
  
- 
+ ![](image/176.png)
  
 ### Event Listener Annotation
 * Selain menggunakan interface ApplicationListener, kita juga bisa menggunakan Annotation untuk membuat Listener
@@ -553,6 +660,8 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * Kita bisa menggunakan annotation @EventListener
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/event/EventListener.html]
 * Kode : Event Listener Annotation
+ 
+ ![](image/179.png)
  
 ### Cara Kerja Event Listener Annotation?
 * Annotation @EventListener bekerja dengan menggunakan Bean Post Processor bernama EventListenerMethodProcessor
@@ -567,12 +676,15 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html] 
  
 * Kode : Foo Application
+ ![](image/183.png)
  
 ### Spring Application
 * Selain @SpringBootApplication, untuk membuat Application Context nya, kita tidak perlu membuat manual, kita bisa gunakan class SpringApplication
 * Secara otomatis SpringApplication akan membuat ApplicationContext dan melakukan hal-hal yang dibutuhkan secara otomatis
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html] 
 * Kode : Spring Application
+ 
+ ![](image/185.png)
  
 ### Spring Boot Test
 * Untuk membuat unit test di Spring Boot, kita bisa menggunakan annotation 
@@ -581,20 +693,13 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html]
 * Kode : Test Foo Application
  
+ ![](image/187.png)
  
- 
 ### Startup Failure
 * Salah satu yang menarik di Spring Boot adalah, Spring Boot memiliki fitur FailureAnalyzer
 * FailureAnalyzer digunakan untuk melakukan analisa ketika terjadi error startup yang menyebabkan aplikasi tidak mau berjalan
 * Spring sudah menyediakan banyak sekali class implementasi FailureAnalyzer yang bisa mempermudah kita menganalisa kesalaha ketika terjadi startup failure
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/diagnostics/FailureAnalyzer.html]
-* Kode : Error Configuration
- 
-* Kode : Tanpa Spring Boot
- 
-* Kode : Dengan Spring Boot
- 
- 
  
 ### Banner
 * Spring Boot memiliki fitur banner, dimana saat aplikasi Spring Boot berjalan, kita bisa menampilkan tulisan banner di console
@@ -603,10 +708,15 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * Salah satu contoh tempat untuk membuat banner adalah [http://www.bagill.com/ascii-sig.php]
 * Kode : Default Banner
  
+ ![](image/195.png)
+ 
 * Kode : banner.txt
+ 
+ ![](image/196.png)
  
 * Kode : Hasil Banner
  
+ ![](image/197.png)
  
  
 ### Customizing Spring Application
@@ -616,6 +726,7 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/builder/SpringApplicationBuilder.html]
 * Kode : Customizing Spring Application
  
+ ![](image/200.png)
  
 ### Spring Application Event
 * Sebelumnya kita sudah belajar tentang Event Listener
@@ -638,12 +749,13 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * Beberapa Event di Spring Boot Application Event di trigger bahkan sebelum Spring membuat Application Context
 * Oleh karena itu, jika kita buat menggunakan bean, bisa saja beberapa listener tidak akan dipanggil, karena bean nya belum dibuat
 * Agar lebih aman, kita bisa menambahkan listener ketika membuat SpringApplication 
-
 * Kode : Contoh Listener
+ 
+ ![](image/205.png)
  
 * Kode : Menambah Listener
  
- 
+ ![](image/206.png)
  
 ### Command Line Runner
 * Saat kita membuat aplikasi, kadang kita butuh argument yang diberikan pada main method
@@ -653,8 +765,8 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html] 
 * Kode : Contoh Command Line Runner
  
+ ![](image/209.png)
  
- 
 ### Application Runner
 * Selain CommandLineRunner, Spring Boot menyediakan fitur ApplicationRunner
 * Penggunaan ApplicationRunner sama seperti CommandLineRunnnner, hanya saja argument nya sudah di wrap dalam object ApplicationArguments
@@ -663,6 +775,7 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * [https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html] 
 * Kode : Application Runner
  
+ ![](image/212.png)
  
 ### Spring Boot Plugin
 * Saat kita membuat project Spring Boot, secara otomatis terdapat spring-boot-plugin di project maven kita
@@ -677,6 +790,5 @@ ApplicationEventPublisher, dimana ApplicationEventPublisher juga merupakan super
 * Pastikan hanya terdapat satu main class, karena jika lebih dari satu, maka spring boot plugin akan melakukan komplen
 * Kita cukup gunakan perintah :
 
- 
 ### Link Video Youtube
 https://www.youtube.com/watch?v=VM3rwdMBORY
