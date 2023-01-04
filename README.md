@@ -324,7 +324,8 @@ Life Cycle Callback
 * @PreDestroy merupakan method yang ditandai harus dipanggil ketika bean akan dihancurkan
 * Jika sudah menggunakan annotation ini, kita tidak perlu lagi menyebutkan nya di @Bean
 * Kode : Server Class
- 
+
+ ![](image/89.png)
  
  
 ### Import
@@ -336,10 +337,15 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html] 
 * Kode : Foo dan Bar Configuration
  
+ ![](image/92.png)
+ 
 * Kode : Import Configuration
+
+![](image/93.png)
  
 * Kode : Mengakses Bean
  
+ ![](image/94.png)
  
  
 ### Component Scan
@@ -351,6 +357,7 @@ Life Cycle Callback
 * [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html]
 * Kode : Component Scan
  
+ ![](image/97.png)
  
 ### Component
 * Sebelumnya kita sudah belajar membuat bean menggunakan method di configuration dengan annotation @Bean
