@@ -42,13 +42,6 @@
 ### Membuat Project
 [https://start.spring.io/]  
 
-![Img 2](image/1.PNG)
-
-
-* Create File
-![Img 7](image/6.png)
-![Img 8](image/7.PNG)
-
  
 ### Inversion of Control
 #### Inversion of Control (IoC) merupakan prinsip dalam pembuatan perangkat lunak, dimana kita melakukan pemindahan kontrol untuk objek atau program ke sebuah container di framework
