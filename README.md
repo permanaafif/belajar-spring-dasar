@@ -38,18 +38,9 @@
 * Spring bisa digunakan terintegrasi dengan baik dengan Bean Validation, Java Persistence API, Servlet, dan lain-lain
 * Selain itu juga Spring bisa diintegrasikan dengan teknologi yang tidak standar bawaan Java, seperti MongoDB, Consul, Vault, Cassandra, dan lain-lain
 
-
 ### Membuat Project
 [https://start.spring.io/]  
 
-![Img 2](image/1.PNG)
-
-
-* Create File
-![Img 7](image/6.png)
-![Img 8](image/7.PNG)
-
- 
 ### Inversion of Control
 #### Inversion of Control (IoC) merupakan prinsip dalam pembuatan perangkat lunak, dimana kita melakukan pemindahan kontrol untuk objek atau program ke sebuah container di framework
 * Tidak seperti biasanya ketika kita membuat aplikasi, dimana kita selalu melakukannya secara manual, dalam IoC, kita menyerahkan banyak pekerjakan ke container IoC 
@@ -59,7 +50,7 @@
 * Spring bisa dibilang adalah framework IoC, dimana kita akan menyerahkan banyak sekali pekerjaan dalam program kita ke Spring
 * Kode program kita akan mengikuti cara kerja Spring
 Diagram Inversion of Control
-![](image/7.PNG)
+![](image/ioc.PNG)
  
 ### Application Context
 * ApplicationContext adalah sebuah interface representasi container IoC di Spring
